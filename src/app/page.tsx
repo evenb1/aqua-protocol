@@ -7,19 +7,25 @@ import SupportedAssets from '@/components/SupportedAssets';
 import Safety from '@/components/Safety';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import AnimatedBackground from '@/components/AnimatedBackground';
+import ScrollIndicator from '@/components/ScrollIndicator';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Features />
-      <HowItWorks />
-      <Stats />
-      <SupportedAssets />
-      <Safety />
-      <CTA />
-      <Footer />
+    <main className="min-h-screen relative">
+      <ScrollIndicator />
+      <AnimatedBackground />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <Stats />
+        <SupportedAssets />
+        <Safety />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   );
 }
