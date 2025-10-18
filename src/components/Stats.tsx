@@ -39,7 +39,7 @@ function StatCard({
       return (latest / 1000000).toFixed(1);
     }
     if (stat.suffix === '%') {
-      return Math.round(latest);
+      return Math.round(latest).toString();
     }
     return Math.round(latest).toLocaleString();
   });
@@ -60,11 +60,11 @@ function StatCard({
       transition={{ delay: index * 0.1 }}
       className="text-center"
     >
-      <motion.div className="text-4xl md:text-5xl font-bold text-accent mb-3">
+      <div className="text-4xl md:text-5xl font-bold text-accent mb-3">
         {stat.prefix}
         <motion.span>{rounded}</motion.span>
         {stat.suffix}
-      </motion.div>
+      </div>
       <div className="text-muted">{stat.label}</div>
     </motion.div>
   );
