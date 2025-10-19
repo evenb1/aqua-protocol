@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Coins } from 'lucide-react';
+import FloatingCard from './FloatingCard';
 
 const assets = [
   {
@@ -67,13 +68,16 @@ export default function SupportedAssets() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: assets.length * 0.1 }}
-            className="glass rounded-2xl p-8 flex flex-col items-center justify-center border-dashed"
           >
-            <Coins className="w-12 h-12 text-muted mb-4" />
-            <h3 className="text-xl font-bold mb-2">More Coming Soon</h3>
-            <p className="text-muted text-center text-sm">
-              Additional LSTs and LP tokens will be added via governance
-            </p>
+            <FloatingCard>
+              <div className="glass rounded-2xl p-8 flex flex-col items-center justify-center border-dashed h-full">
+                <Coins className="w-12 h-12 text-muted mb-4" />
+                <h3 className="text-xl font-bold mb-2">More Coming Soon</h3>
+                <p className="text-muted text-center text-sm">
+                  Additional LSTs and LP tokens will be added via governance
+                </p>
+              </div>
+            </FloatingCard>
           </motion.div>
         </div>
       </div>
@@ -94,31 +98,33 @@ function AssetCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
-      className="glass rounded-2xl p-8 cursor-pointer group"
     >
-      {/* Asset icon placeholder */}
-      <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-        <span className="text-xl font-bold text-accent">
-          {asset.symbol.charAt(0)}
-        </span>
-      </div>
+      <FloatingCard>
+        <div className="glass rounded-2xl p-8 cursor-pointer group h-full">
+          {/* Asset icon placeholder */}
+          <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+            <span className="text-xl font-bold text-accent">
+              {asset.symbol.charAt(0)}
+            </span>
+          </div>
 
-      <div className="flex justify-between items-start mb-4">
-        <div>
-          <h3 className="text-xl font-bold mb-1">{asset.name}</h3>
-          <p className="text-sm text-muted">{asset.type}</p>
-        </div>
-        <div className="text-right">
-          <div className="text-accent font-bold">{asset.apy}</div>
-          <div className="text-xs text-muted">APY</div>
-        </div>
-      </div>
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h3 className="text-xl font-bold mb-1">{asset.name}</h3>
+              <p className="text-sm text-muted">{asset.type}</p>
+            </div>
+            <div className="text-right">
+              <div className="text-accent font-bold">{asset.apy}</div>
+              <div className="text-xs text-muted">APY</div>
+            </div>
+          </div>
 
-      <div className="pt-4 border-t border-white/10">
-        <div className="text-sm text-muted">Symbol</div>
-        <div className="font-mono text-white">{asset.symbol}</div>
-      </div>
+          <div className="pt-4 border-t border-white/10">
+            <div className="text-sm text-muted">Symbol</div>
+            <div className="font-mono text-white">{asset.symbol}</div>
+          </div>
+        </div>
+      </FloatingCard>
     </motion.div>
   );
 }

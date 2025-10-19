@@ -2,11 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import GradientBlob from './GradientBlob';
+import FloatingIcons from './FloatingIcons';
+import GridPattern from './GridPattern';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 pt-20">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
+      <GridPattern />
+      <GradientBlob />
+      <FloatingIcons />
+      
+      <div className="max-w-6xl mx-auto text-center relative z-10">
         {/* Floating badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
