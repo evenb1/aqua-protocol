@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Shield, TrendingUp, Zap, Lock, Coins, Users } from 'lucide-react';
+import FloatingCard from './FloatingCard';
 
 const features = [
   {
@@ -79,15 +80,17 @@ function FeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -5 }}
-      className="glass rounded-2xl p-8 group cursor-pointer"
     >
-      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-        <feature.icon className="w-6 h-6 text-accent" />
-      </div>
-      
-      <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-      <p className="text-muted leading-relaxed">{feature.description}</p>
+      <FloatingCard>
+        <div className="glass rounded-2xl p-8 group cursor-pointer h-full">
+          <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+            <feature.icon className="w-6 h-6 text-accent" />
+          </div>
+          
+          <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+          <p className="text-muted leading-relaxed">{feature.description}</p>
+        </div>
+      </FloatingCard>
     </motion.div>
   );
 }
