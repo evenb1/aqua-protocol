@@ -19,7 +19,6 @@ export default function Bento() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
-          {/* Large card - top left */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
